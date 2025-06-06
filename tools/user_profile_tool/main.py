@@ -31,13 +31,13 @@ with gr.Blocks() as demo:
         inp = gr.Textbox(label="User ID")
         out = gr.JSON(label="Profile")
         btn = gr.Button("Get")
-        btn.click(get_profile, inp, out)
+        btn.click(get_profile, inp, out, api_name="/Get Profile")
     with gr.Tab("Set Profile"):
         inp_id = gr.Textbox(label="User ID")
         inp_profile = gr.JSON(label="Profile JSON")
         out_save = gr.JSON(label="Result")
         btn_save = gr.Button("Save")
-        btn_save.click(set_profile, [inp_id, inp_profile], out_save)
+        btn_save.click(set_profile, [inp_id, inp_profile], out_save, api_name="/Set Profile")
 
 if __name__ == "__main__":
-    demo.launch(share=True, mcp_server=True, show_error=True)
+    demo.launch(server_port=7863, share=True, mcp_server=True, show_error=True)

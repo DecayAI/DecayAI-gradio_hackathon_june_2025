@@ -22,8 +22,11 @@ notify_client = Client(NOTIFY_URL)
 
 
 def compute_stoke(user_id: str, lat: float, lon: float, hours: int = 6, alert: bool = False):
+    # Convert hours to integer to ensure proper slicing in tools
+    hours = int(hours)
+    
     # Fetch profile
-    profile = profile_client.predict(user_id, api_name="/Get Profile")
+    profile = profile_client.predict(user_id, api_name="//Get Profile")
     weight = profile.get("weight", 80)
     skill = profile.get("skill", "intermediate")
 
@@ -51,7 +54,7 @@ def compute_stoke(user_id: str, lat: float, lon: float, hours: int = 6, alert: b
     msg = f"Avg wind {avg_wind:.1f} kt, tide {avg_tide:.2f}m. Stoke {score}/100. Use {kite}."
 
     if alert and score >= 60:
-        notify_client.predict(profile.get("phone", ""), msg, api_name="/Send SMS")
+        notify_client.predict(profile.get("phone", ""), msg, api_name="//Send SMS")
 
     return {"profile": profile, "stoke": score, "kite": kite, "message": msg}
 
