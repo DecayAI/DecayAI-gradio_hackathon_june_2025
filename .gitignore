@@ -1,0 +1,13 @@
+# Environments
+.env
+.venv
+/
+__pycache__/
+*.pyc
+
+# IDE / Editor specific
+.vscode/
+.idea/
+
+# Gradio
+.gradio_cache/ 

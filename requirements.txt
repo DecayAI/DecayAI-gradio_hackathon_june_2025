@@ -1,0 +1,14 @@
+fastapi
+gradio
+huggingface-hub
+langchain
+langchain-community
+langgraph
+modal
+openmeteo-requests
+python-dotenv
+requests
+requests-cache
+retry-requests
+supabase
+uvicorn 
