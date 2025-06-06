@@ -11,4 +11,6 @@ requests
 requests-cache
 retry-requests
 supabase
-uvicorn 
+uvicorn
+twilio
+sendgrid
